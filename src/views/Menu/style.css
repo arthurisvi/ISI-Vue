@@ -1,0 +1,27 @@
+.banner-secondary {
+    height: 200px !important;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(0%);
+    transition: all linear 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: #d6d6d6;
+}
+
+.banner-menu {
+    background-image: url("../../assets/menu.jpg");
+}
+
+.banner-menu:hover {
+    filter: grayscale(100%);
+}
+
+.banner-menu .slogan {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
