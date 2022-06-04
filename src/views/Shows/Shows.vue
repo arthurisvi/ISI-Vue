@@ -23,15 +23,16 @@
         </thead>
         <tbody class="table-body">
           <tr v-for="show in shows" :key="show.id" class="table-row">
-            <th>{{show.nome_atracao}}</th>
-            <th>{{show.data}}</th>
-            <th>{{show.hora}}</th>
+            <th>{{ show.nome_atracao }}</th>
+            <th>{{ show.data }}</th>
+            <th>{{ show.hora }}</th>
             <th>
               <button @click="delShow(show.id)" class="button-styled">
                 Excluir
               </button>
-              <button @click="updateShow(show)" class="button-styled">Editar</button>
-
+              <button @click="updateShow(show)" class="button-styled">
+                Editar
+              </button>
             </th>
           </tr>
         </tbody>
@@ -54,74 +55,75 @@
 </template>
 
 <script>
- import {getShows, editShow, deleteShow, createShow} from '@/services/showsServices'
-import Modal from '../../components/Modal/Modal.vue';
+import {
+  getShows,
+  editShow,
+  deleteShow,
+  createShow,
+} from "@/services/showsServices";
+import Modal from "../../components/Modal/Modal.vue";
 
 export default {
-
   name: "Shows",
   data() {
     return {
       shows: [],
       isModal: false,
-      bandName: '',
-      date: '',
-      time: '',
-      id: '',
+      bandName: "",
+      date: "",
+      time: "",
+      id: "",
     };
   },
   components: {
-    Modal
+    Modal,
   },
   async created() {
     this.listShows();
   },
-  methods:{
-    updateShow(show){
-      this.bandName = show.nome_atracao
-      this.date = show.data
-      this.time = show.hora
-      this.id = show.id
-      this.isModal = true
-      
+  methods: {
+    handleCancel() {
+      this.isModal = false;
     },
-    async delShow (id){
-      try{
-        await deleteShow(id)
-        window.location.reload()
-      }catch(error){
-
-      }
+    updateShow(show) {
+      this.bandName = show.nome_atracao;
+      this.date = show.data;
+      this.time = show.hora;
+      this.id = show.id;
+      this.isModal = true;
     },
-    async listShows(){
-      try{
+    async delShow(id) {
+      try {
+        await deleteShow(id);
+        window.location.reload();
+      } catch (error) {}
+    },
+    async listShows() {
+      try {
         const { data } = await getShows();
         if (data) {
-        this.shows= data;
+          this.shows = data;
         }
-      } catch(error){
-
-      }
+      } catch (error) {}
     },
     async register() {
       try {
-        if(this.id){
-          await editShow(this.id, this.bandName, this.date, this.time)
-        }else{
+        if (this.id) {
+          await editShow(this.id, this.bandName, this.date, this.time);
+        } else {
           await createShow(this.bandName, this.date, this.time);
         }
-        window.location.reload()
+        window.location.reload();
       } catch (error) {
-        
-      } finally { 
-      this.isModal = false;
+      } finally {
+        this.isModal = false;
       }
     },
     registerShow() {
-      this.bandName = '',
-        this.date = '',
-        this.time = '',
-        this.isModal =  true;
+      (this.bandName = ""),
+        (this.date = ""),
+        (this.time = ""),
+        (this.isModal = true);
     },
   },
 };

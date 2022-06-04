@@ -6,7 +6,6 @@ const showsServices = axios.create({
     baseURL,
     headers: { 'Constent-Type': 'application/json' },
 });
-
 export async function getShows() {
     return showsServices.get('/shows');
 }
