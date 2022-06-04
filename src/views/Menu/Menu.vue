@@ -4,11 +4,11 @@
       <h3>Menu</h3>
     </div>
   </div>
-  <!-- <main class="menu">
+  <main class="menu">
     <section class="products">
         <div class="title-section">
             <h2 class="title">Bebidas</h2>
-            <button class="button-styled" *ngIf="logged" (click)="openModal()">
+            <button class="button-styled">
           <h1>+</h1>
         </button>
         </div>
@@ -17,16 +17,16 @@
                 <tr>
                     <th>Bebida</th>
                     <th>Preço</th>
-                    <th *ngIf="logged">Ações</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody class="table-body">
-                <tr *ngFor="let drink of listDrinksProducts" class="table-row">
-                    <th>{{drink.nome}}</th>
-                    <th>{{drink.preco}}</th>
-                    <th *ngIf="logged">
-                        <button class="button-styled" (click)="destroy(drink)">Excluir</button>
-                        <button class="button-styled" (click)="edit(drink)">Editar</button>
+                <tr class="table-row">
+                    <th>cerva</th>
+                    <th>preço</th>
+                    <th>
+                        <button class="button-styled" >Excluir</button>
+                        <button class="button-styled" >Editar</button>
                     </th>
                 </tr>
             </tbody>
@@ -35,7 +35,7 @@
     <section class="products">
         <div class="title-section">
             <h2 class="title">Petiscos</h2>
-            <button class="button-styled" *ngIf="logged" (click)="openModal()">
+            <button class="button-styled">
       <h1>+</h1>
     </button>
         </div>
@@ -44,23 +44,22 @@
                 <tr>
                     <th>Petisco</th>
                     <th>Preço</th>
-                    <th *ngIf="logged">Ações</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody class="table-body">
-                <tr *ngFor="let snack of listSnacksProducts" class="table-row">
-                    <th>{{snack.nome}}</th>
-                    <th>{{snack.preco}}</th>
-                    <th *ngIf="logged">
-                        <button class="button-styled" (click)="destroy(snack)">Excluir</button>
-                        <button class="button-styled" (click)="edit(snack)">Editar</button>
+                <tr  class="table-row">
+                    <th>picacha</th>
+                    <th>10</th>
+                    <th >
+                        <button class="button-styled">Excluir</button>
+                        <button class="button-styled">Editar</button>
                     </th>
                 </tr>
             </tbody>
         </table>
     </section>
-    <app-modal-product [product]="product" *ngIf="modalState"></app-modal-product>
-</main> -->
+</main>
 </template>
 
 <script>
